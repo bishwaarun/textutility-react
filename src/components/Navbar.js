@@ -32,10 +32,12 @@ export default function Navbar(props) {
 }
 
 Navbar.propTypes = {
-    title: PropTypes.string
+    title: PropTypes.string,
+    aboutTitle: PropTypes.string
+
 }
 
 // Specifies the default values for props:
 Navbar.defaultProps = {
-    aboutTitle: 'Defaut About Us'
+    aboutTitle: 'About Us'
   };
