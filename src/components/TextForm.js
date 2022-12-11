@@ -2,16 +2,19 @@ import React, { useState } from 'react'
 
 export default function TextForm(props) {
 
-    let handleClickUpCase = () => {
+    let handleUpClick = () => {
         //console.log("You have clicked on upper button");
         let newText = text.toUpperCase();
         setText(newText);
     }
 
-    let handleClickLoCase = () => {
-        //console.log("You have clicked on upper button");
+    let handleLoClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
+    }
+
+    let handleClearClick = () => {
+        setText('');
     }
 
     let handleOnChange = (event) => {
@@ -28,8 +31,9 @@ export default function TextForm(props) {
                 <div className="mb-3">
                     <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
-                <button type="button" className="btn btn-primary mx-1" onClick={handleClickUpCase}>Convert to Uppercase</button>
-                <button type="button" className="btn btn-primary mx-1" onClick={handleClickLoCase}>Convert to Lowercase</button>
+                <button type="button" className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
+                <button type="button" className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
+                <button type="button" className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
             </div>
             <div className="container">
                 <h2>Your Text Summary</h2>
