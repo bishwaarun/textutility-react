@@ -17,6 +17,17 @@ export default function TextForm(props) {
         setText('');
     }
 
+    let handleCopyClick = () => {
+        var text = document.getElementById("myBox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+    
+    let handleExtraSpaceClick = () => {
+        var newText =text.split(/[ ]+/);
+        setText(newText.join(" "))
+    }
+
     let handleOnChange = (event) => {
         //  console.log("On Change");
         setText(event.target.value);
@@ -34,8 +45,10 @@ export default function TextForm(props) {
                 <button type="button" className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
                 <button type="button" className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
                 <button type="button" className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
+                <button type="button" className="btn btn-primary mx-1" onClick={handleCopyClick}>Copy Text</button>
+                <button type="button" className="btn btn-primary mx-1" onClick={handleExtraSpaceClick}>Remove Extra Text</button>
             </div>
-            <div className="container">
+            <div className="container my-4">
                 <h2>Your Text Summary</h2>
                 <p>{text.split(' ').length} words and {text.length} characters </p>
                 <p>{text.split(' ').length * 0.008} minutes read</p>
